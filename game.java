@@ -22,35 +22,35 @@ public class game {
         }
     }
     public void singlePlayer() {
-        int playerTurn = (int)Math.random()*2 + 1;
         int turn = 0;
         do {
-            System.out.print('\u000C');
+            System.out.print('\u000C'); //clears window
             table.printBoard();
             player1.move(table);
             turn++;
-        } while (!table.gameOver(player1) && turn < 16);
+        } while (!table.gameOver(player1.getMarker()) && turn < 16); //checks if game is over + whether turn matches max # of cells in board
         System.out.print('\u000C');
-        table.printBoard();
-        if (table.gameOver(player1)) System.out.println(player1.getName() + " wins!");
-        else System.out.println("The game is a tie!");
+        table.printBoard(); //prints final board
+        if (table.gameOver(player1.getMarker())) System.out.println(player1.getName() + " wins!");
+        else System.out.println("You didn't win.");
     }
     public void twoPlayer() {
-        int playerTurn = (int)Math.random()*2 + 1;
+        int playerTurn = (int)(Math.random()*2 + 1); //randomizes who starts
         int turn = 0;
         do {
-            System.out.print('\u000C');
+            System.out.print('\u000C'); //window clear
             table.printBoard();
             if (playerTurn == 1) player1.move(table);
             else player2.move(table);
             playerTurn++;
             turn++;
             if (playerTurn == 3) playerTurn = 1;
-        } while (!table.gameOver(player1) && !table.gameOver(player2) && turn < 16);
+        } while (!table.gameOver(player1.getMarker()) 
+              && !table.gameOver(player2.getMarker()) && turn < 16); //gameover check + whether turn matches max cells
         System.out.print('\u000C');
         table.printBoard();
-        if (table.gameOver(player1)) System.out.println(player1.getName() + " wins!");
-        else if (table.gameOver(player2)) System.out.println(player2.getName() + " wins!");
+        if (table.gameOver(player1.getMarker())) System.out.println(player1.getName() + " wins!");
+        else if (table.gameOver(player2.getMarker())) System.out.println(player2.getName() + " wins!");
         else System.out.println("The game is a tie!");
     }
 }

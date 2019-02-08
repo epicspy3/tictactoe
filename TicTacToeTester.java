@@ -6,7 +6,7 @@ public class TicTacToeTester {
         int gameMode;
         System.out.println("Welcome to 4x4 Tic Tac Toe.");
         System.out.println("Type 1 for singleplayer and 2 for a two player game.");
-        while(true) {
+        while(true) { //force player into typing 1 or 2
             gameMode = sc.nextInt();
             if (gameMode == 1) {
                 game test1 = new game(gameMode);

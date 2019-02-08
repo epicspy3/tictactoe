@@ -23,25 +23,29 @@ public class board {
     public void move(String marker, int row, int col) {
         board[row][col] = marker;
     }
-    public boolean gameOver(player player1) {
+    public boolean cellIsOccupied(int row, int col) {
+        if (board[row][col].equals("_")) return false;
+        else return true;
+    }
+    public boolean gameOver(String marker) {
         for (int i = 0; i < 4; i++) {
             if (board[i][0].equals(board[i][1]) 
              && board[i][1].equals(board[i][2]) 
              && board[i][2].equals(board[i][3]) 
-             && board[i][3].equals(player1.getMarker())) return true;
+             && board[i][3].equals(marker)) return true;
             if (board[0][i].equals(board[1][i]) 
              && board[1][i].equals(board[2][i])
              && board[2][i].equals(board[3][i]) 
-             && board[3][i].equals(player1.getMarker())) return true;
+             && board[3][i].equals(marker)) return true;
         }
         if (board[0][0].equals(board[1][1]) 
          && board[1][1].equals(board[2][2])
          && board[2][2].equals(board[3][3])
-         && board[3][3].equals(player1.getMarker())) return true;
+         && board[3][3].equals(marker)) return true;
         if (board[0][3].equals(board[1][2]) 
          && board[1][2].equals(board[2][1])
          && board[2][1].equals(board[3][0])
-         && board[3][0].equals(player1.getMarker())) return true;
+         && board[3][0].equals(marker)) return true;
         return false;
     }
 }
