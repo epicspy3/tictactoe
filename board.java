@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class board {
     private String[][] board;
     public board() {

@@ -10,6 +10,7 @@ public class TicTacToeTester {
             gameMode = sc.nextInt();
             if (gameMode == 1) {
                 game test1 = new game(gameMode);
+                test1.singlePlayer();
                 break;
             }
             else if (gameMode == 2) {

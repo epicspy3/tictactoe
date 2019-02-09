@@ -11,8 +11,8 @@ public class player{
     public String getName() {return name;}
     public String getMarker() {return marker;}
     public void move(board game) {
+    Scanner sc = new Scanner(System.in);
         do {
-        Scanner sc = new Scanner(System.in);
         System.out.println(name + ": Type the X coordinate of the point you want to place your marker on.");
         playerMoveX = sc.nextInt();
         System.out.println(name + ": Type the Y coordinate of the point you want to place your marker on.");
